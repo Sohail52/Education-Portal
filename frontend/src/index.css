@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Default Warm Theme (Palette 1) */
+        --bg-main: #FBF9F5;
+        --bg-surface: #FFFFFF;
+        --text-main: #1A1A1A;
+        --text-body: #4A4A4A;
+        --text-muted: #9CA3AF;
+        --border-color: #EBE5DA;
+        --accent-primary: #7F9CF5;
+    }
+
+    [data-theme="dark"] {
+        /* Dark Theme (Palette 2) */
+        --bg-main: #121212;
+        --bg-surface: #1E1E1E;
+        --text-main: #E5E5E5;
+        --text-body: #A3A3A3;
+        --text-muted: #525252;
+        --border-color: #333333;
+        --accent-primary: #818CF8;
+    }
+
+    [data-theme="pastel"] {
+        /* Pastel Theme (Palette 3) */
+        --bg-main: #F0F4F8;
+        --bg-surface: #FFFFFF;
+        --text-main: #2D3748;
+        --text-body: #4A5568;
+        --text-muted: #A0AEC0;
+        --border-color: #E2E8F0;
+        --accent-primary: #F6AD55;
+    }
+
+    body {
+        @apply bg-app text-secondary font-sans antialiased transition-colors duration-500;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-primary font-semibold tracking-tight;
+    }
+}
+
+@layer components {
+
+    /* Watery Hover Effect Utility */
+    .watery-hover {
+        @apply relative overflow-hidden transition-all duration-300;
+    }
+
+    .watery-hover::after {
+        content: '';
+        @apply absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300;
+    }
+
+    .watery-hover:hover::after {
+        @apply opacity-100;
+    }
+}
